@@ -1,27 +1,27 @@
 <template>
   <!-- Calculator container -->
-  <div class="shadow-lg p-3 rounded" style="max-width: 400px; margin: 50px auto; background: rgb(44, 67, 88); text-align: right;">
+  <div class="shadow-lg p-3 rounded calculatorContainer">
     <!-- Display the current value -->
     <div class="w-full rounded m-1 p-3 lead font-weight-bold text-white bg-dark ">
-      {{ Current || 0 }}
+      {{ current || 0 }}
     </div>
     <!-- First row of buttons -->
     <div class="row no-gutters">
-      <!-- Clear button -->
+      <!-- clear button -->
       <div class="col-6 ">
-        <div @click="Clear" class="HoverClass lead text-dark text-center m-1 py-3 bg-secondary rounded hover-class"> 
+        <div @click="clear" class="hoverClass lead text-dark text-center m-1 py-3 bg-secondary rounded hover-class"> 
             C
         </div>
       </div>
-      <!-- Sign button -->
+      <!-- sign button -->
       <div class="col-3 ">
-        <div @click="Sign" class="HoverClass lead text-dark text-center m-1 py-3 bg-secondary rounded hover-class">
+        <div @click="sign" class="hoverClass lead text-dark text-center m-1 py-3 bg-secondary rounded hover-class">
           -/+
         </div>
       </div>
-      <!-- Divide button -->
+      <!-- divide button -->
       <div class="col-3 ">
-        <div @click="Divide" class="HoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class "> 
+        <div @click="divide" class="hoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class "> 
           ÷
         </div>
       </div>
@@ -30,25 +30,25 @@
     <div class="row no-gutters">
       <!-- Number 7 button -->
       <div class="col-3 ">
-        <div @click="Append('7')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
+        <div @click="append('7')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
           7
         </div>
       </div>
       <!-- Number 8 button -->
       <div class="col-3 ">
-        <div @click="Append('8')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
+        <div @click="append('8')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
           8
         </div>
       </div>
       <!-- Number 9 button -->
       <div class="col-3 ">
-        <div @click="Append('9')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
+        <div @click="append('9')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
           9
         </div>
       </div>
       <!-- Multiply button -->
       <div class="col-3 ">
-        <div @click="Times" class="HoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class">
+        <div @click="times" class="hoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class">
           x
         </div>
       </div>
@@ -57,25 +57,25 @@
     <div class="row no-gutters">
       <!-- Number 4 button -->
       <div class="col-3 ">
-        <div @click="Append('4')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
+        <div @click="append('4')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
           4
         </div>
       </div>
       <!-- Number 5 button -->
       <div class="col-3 ">
-        <div @click="Append('5')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
+        <div @click="append('5')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
           5
         </div>
       </div>
       <!-- Number 6 button -->
       <div class="col-3 ">
-        <div @click="Append('6')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
+        <div @click="append('6')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
           6
         </div>
       </div>
       <!-- Subtract button -->
       <div class="col-3 ">
-        <div @click="Minus" class="HoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class">
+        <div @click="minus" class="hoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class">
           -
         </div>
       </div>
@@ -84,25 +84,25 @@
     <div class="row no-gutters">
       <!-- Number 1 button -->
       <div class="col-3 ">
-        <div @click="Append('1')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
+        <div @click="append('1')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
           1
         </div>
       </div>
       <!-- Number 2 button -->
       <div class="col-3 ">
-        <div @click="Append('2')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
+        <div @click="append('2')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
           2
         </div>
       </div>
       <!-- Number 3 button -->
       <div class="col-3 ">
-        <div @click="Append('3')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
+        <div @click="append('3')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
           3
         </div>
       </div>
-      <!-- Add button -->
+      <!-- add button -->
       <div class="col-3 ">
-        <div @click="Add" class="HoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class">
+        <div @click="add" class="hoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class">
           +
         </div>
       </div>
@@ -111,19 +111,19 @@
     <div class="row no-gutters">
       <!-- Number 0 button -->
       <div class="col-6 ">
-        <div @click="Append('0')" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
+        <div @click="append('0')" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class "> 
           0
         </div>
       </div>
-      <!-- Dot button -->
+      <!-- dot button -->
       <div class="col-3 ">
-        <div @click="Dot" class="HoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
+        <div @click="dot" class="hoverClass lead text-white text-center m-1 py-3 bg-dark rounded hover-class">
           .
         </div>
       </div>
-      <!-- Equal button -->
+      <!-- eqal button -->
       <div class="col-3 ">
-        <div @click="Equal" class="HoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class "> 
+        <div @click="eqal" class="hoverClass lead text-white text-center m-1 py-3 bg-warning rounded hover-class "> 
           =
         </div>
       </div>
@@ -135,92 +135,98 @@
   export default {
     data() {
       return {
-        Previous: null, // Variable to store the previous value entered
-        Current: '', // Variable to store the current value entered
-        Operator: null, // Variable to store the operator function
-        OperatorClicked: false, // Flag to indicate if an operator has been clicked
+        previous: null, // Variable to store the previous value entered
+        current: '', // Variable to store the current value entered
+        operator: null, // Variable to store the operator function
+        operatorClicked: false, // Flag to indicate if an operator has been clicked
       }
     },
     methods:{
       // Function to clear the current value
-      Clear(){
-        this.Current = '';
+      clear(){
+        this.current = '';
       },
       // Function to toggle the sign of the current value
-      Sign(){
-        if(this.Current && parseFloat(this.Current) !== 0){
-          if(this.Current.charAt(0)=== '-'){
-            this.Current = this.Current.slice(1) 
+      sign(){
+        if(this.current && parseFloat(this.current) !== 0){
+          if(this.current.charAt(0)=== '-'){
+            this.current = this.current.slice(1) 
           }
           else{
-            this.Current = '-' + this.Current;
+            this.current = '-' + this.current;
           } 
         } 
       },
       // Function to append a number to the current value
-      Append(number){
+      append(number){
         // If an operator has been clicked, reset the current value
-        if(this.OperatorClicked){
-          this.Current = '';
-          this.OperatorClicked = false;
+        if(this.operatorClicked){
+          this.current = '';
+          this.operatorClicked = false;
         }
         // Prevent leading zeros
-        if(number == 0 && this.Current == ''){
+        if(number == 0 && this.current == ''){
           return
         }
-        this.Current = this.Current + number;
+        this.current = this.current + number;
       },
       // Function to add a decimal point to the current value
-      Dot(){
+      dot(){
         // If there is no decimal point already
-        if(this.Current.indexOf('.') === -1) {
-          this.Append('.');
+        if(this.current.indexOf('.') === -1) {
+          this.append('.');
         }
       },
       // Function to set the previous value to the current value and set the operator clicked flag
-      SetPrevious(){
-        this.Previous = this.Current;
-        this.OperatorClicked = true;
+      Setprevious(){
+        this.previous = this.current;
+        this.operatorClicked = true;
       },
       // Function to set the operator to division
-      Divide(){
-        this.Operator = (a, b) => a / b;
-        this.SetPrevious();
+      divide(){
+        this.operator = (a, b) => a / b;
+        this.Setprevious();
       },
       // Function to set the operator to multiplication
-      Times(){
-        this.Operator = (a, b) => a * b;
-        this.SetPrevious();
+      times(){
+        this.operator = (a, b) => a * b;
+        this.Setprevious();
       },
       // Function to set the operator to subtraction
-      Minus(){
-        this.Operator = (a, b) => a - b;
-        this.SetPrevious();
+      minus(){
+        this.operator = (a, b) => a - b;
+        this.Setprevious();
       },
       // Function to set the operator to addition
-      Add() {
-        this.Operator = (a, b) => a + b; 
-        this.SetPrevious();
+      add() {
+        this.operator = (a, b) => a + b; 
+        this.Setprevious();
       },
       // Function to evaluate the expression and display the result
-      Equal() {
-        if(this.Previous === ''){
-          this.Previous = 0
+      eqal() {
+        if(this.previous === ''){
+          this.previous = 0
         }
-        this.Current = this.Operator(parseFloat(this.Previous),parseFloat(this.Current));
-        this.Previous = null;
+        this.current = this.operator(parseFloat(this.previous),parseFloat(this.current));
+        this.previous = null;
       }
     }
   }
 </script>
 
 <style scoped>
-  .HoverClass {
+  .hoverClass {
     transition: background-color 0.3s ease-in-out;
   }
-  .HoverClass:hover {
+  .hoverClass:hover {
     background: #eef3f8 !important;
     color:black !important;
     cursor: pointer;
+  }
+  .calculatorContainer{
+    max-width: 400px; 
+    margin: 50px auto; 
+    background: rgb(44, 67, 88); 
+    text-align: right;
   }
 </style>
